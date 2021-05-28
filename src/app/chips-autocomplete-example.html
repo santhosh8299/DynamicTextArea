@@ -1,0 +1,19 @@
+<div mwlTextInputHighlightContainer>
+  <textarea mwlTextInputElement 
+  placeholder="User Name..."
+   [formControl]="PersonControl" 
+    [matAutocomplete]="auto" #textarea></textarea>
+  <mwl-text-input-highlight [tags]="tags" [tagCssClass]="'bg-blue'" 
+    [textInputElement]="textarea">
+  </mwl-text-input-highlight>
+</div>
+
+<mat-autocomplete class="example-list" #auto="matAutocomplete" (optionSelected)="selected($event)">
+  <mat-option *ngFor="let person of filteredPersons | async" [value]="person">
+    {{person}}
+  </mat-option>
+</mat-autocomplete>
+
+
+
+
